@@ -7,6 +7,9 @@ to not feel so overwhelmed and have an easy way to get gaming on linux
 ###### Using git clone
 ```
 git clone https://github.com/Simulink01/gamescript.git
+cd gamescript
+sudo bash gamescript.sh
+```
 
 # Contributing
 This project is very early in development, feel free to contribute anything to this project
