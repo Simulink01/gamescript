@@ -12,5 +12,5 @@ sudo bash gamescript.sh
 ```
 
 # Contributing
-This project is very early in development, feel free to contribute anything to this project
-that you think will make it better.
+This project is very early in development, feel free to contribute anything to this project that you think will make it better.
+Currently gamescript only supports ubuntu, so the #1 thing needed to make this project better currently is support for more distros.
