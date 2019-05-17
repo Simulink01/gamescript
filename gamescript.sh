@@ -15,7 +15,7 @@ if [[ "$EUID" -ne 0 ]]; then
 fi
 
 # Get linux distro name
-DISTRO=$( cat /etc/*-release | tr [:upper:] [:lower:] | grep -Poi '(debian|ubuntu|red hat|centos|nameyourdistro)' | uniq )
+DISTRO=$( cat /etc/*-release | tr [:upper:] [:lower:] | grep -Poi '(debian|ubuntu|red hat|centos|arch)' | uniq )
 if [ -z $DISTRO ]; then
     DISTRO='unknown'
 fi
