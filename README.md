@@ -4,8 +4,9 @@ the goal of this project is to allow new users from windows systems
 to not feel so overwhelmed and have an easy way to get gaming on linux
 
 # Installation
-## Using git clone
-placeholder1
+###### Using git clone
+```
+git clone https://github.com/Simulink01/gamescript.git
 
 # Contributing
 This project is very early in development, feel free to contribute anything to this project
