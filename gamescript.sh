@@ -1,5 +1,5 @@
 #!/bin/bash
-# https://github.com/
+# https://github.com/Simulink01/gamescript/
 # Copyright (c) 2019 Simulink. Released under the GNU General Public Lisence v3.0. (https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 # Detect Debian users running the script with "sh" instead of bash
