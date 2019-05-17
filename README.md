@@ -2,6 +2,7 @@
 A WIP Script to easily setup linux for gaming.
 The goal of this project is to allow new users from windows systems
 to not feel so overwhelmed and have an easy way to get gaming on linux
+We currently support Ubuntu based distros and Archlinux
 
 # Installation
 ###### Using git clone

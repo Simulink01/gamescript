@@ -21,6 +21,7 @@ if [ -z $DISTRO ]; then
 fi
 echo "Detected Distro: $DISTRO"
 # See if compatable
+
 if [ $DISTRO == 'ubuntu' ]; then
 	echo "✔️ Your distro is compatable with this script!"
 else
