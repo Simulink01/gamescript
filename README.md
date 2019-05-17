@@ -1,6 +1,6 @@
 # gamescript
-A WIP Script to easily setup linux for gaming
-the goal of this project is to allow new users from windows systems
+A WIP Script to easily setup linux for gaming.
+The goal of this project is to allow new users from windows systems
 to not feel so overwhelmed and have an easy way to get gaming on linux
 
 # Installation
