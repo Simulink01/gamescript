@@ -44,7 +44,7 @@ if [ $DISTRO == 'arch' ]; then
 	echo "installing gamemode"
 	yay -S gamemode
 	echo "finished installing gamemode"
-	echo "We have finished installing everything we need to, and you are now ready to start gaming in Archlinux!"""
+	echo "We have finished installing everything we need to, and you are now ready to start gaming in Archlinux!"
 	echo "In order to get the gamemode package to work in lutris:"
 	echo "1. Open lutris"
 	echo "2. CLick on the lutris logo in the uper right hand corner and open preferences"
