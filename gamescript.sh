@@ -9,7 +9,7 @@ if readlink /proc/$$/exe | grep -q "dash"; then
 fi
 
 # Make sure script is running as root
-if [[ "$EUID" -ne 0 ]]; then
+if [ "$EUID" -ne 0 ]; then
  echo "Sorry, you need to run script this as root."
  exit
 fi
@@ -33,7 +33,6 @@ if [ -z $DISTRO ]; then
 fi
 echo "Detected Distro: $DISTRO"
 # See if compatible
-
 if [ $DISTRO == 'ubuntu' -o 'arch' ]; then
 	echo "✔️ Your distro is compatible with this script!"
 else
@@ -44,6 +43,14 @@ fi
 
 # Install for ubuntu
 if [ $DISTRO == 'ubuntu' ]; then
+	if ! [ -x "$(command -v nvidia-smi)" ] && [ ./lspci | grep VGA | grep -q 'NVIDIA Corporation' ]
+	then
+   echo 'Your system reports that you do not have the propriety driver for your NVIDIA graphics card.'
+	 echo 'You need a propriety driver to game because it offers better performance than open-source drivers'
+	 echo 'would you like to continue with installation?'
+	 prompt_confirm "" || exit 0
+	 apt install nvidia-driver-390
+  fi
 	wget -nc https://dl.winehq.org/wine-builds/winehq.key
 	apt-key add winehq.key
 	apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ disco main' -y
@@ -53,7 +60,7 @@ if [ $DISTRO == 'ubuntu' ]; then
 	git clone https://github.com/FeralInteractive/gamemode.git
 	cd gamemode
 	git checkout 1.3.1 # omit to build the master branch
-  ./bootstrap.sh
+  	./bootstrap.sh
 	cd ..
 	wget http://ftp.br.debian.org/debian/pool/main/d/dxvk/dxvk_0.96+ds1-1_all.deb
 	wget http://ftp.br.debian.org/debian/pool/main/d/dxvk/dxvk-wine64-development_0.96+ds1-1_amd64.deb
@@ -68,37 +75,40 @@ if [ $DISTRO == 'ubuntu' ]; then
 	echo "4. Add a environment variable with the following details:"
 	echo "Key: LD_PRELOAD"
 	echo "Value: "
-  find /usr -iname libgamemodeauto*
-#arch install script (copied from gamescript-archtest.sh)
+  	find /usr -iname libgamemodeauto*
+
+# Install for arch (copied from gamescript-archtest.sh)
   elif [ $DISTRO == 'arch' ]; then
-		echo "enabling multilib repository"
-		sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-		echo "finished enabling multilib repository"
-		sudo pacman -Sy wine
-		echo "finished installing Wine"
-		sudo pacman -Sy lutris
-		echo "finished installing lutris"
-		echo "installing yay AUR helper"
-		mkdir ~/yay
-		git clone https://aur.archlinux.org/yay.git ~/yay
-		cd ~/yay
-		makepkg -si
-		echo "Finised installing yay"
-		echo "installing dxvk-bin"
-		yay -S dxvk-bin
-		echo "finished installing dxvk-bin"
-		echo "installing gamemode"
-		yay -S gamemode
-		echo "finished installing gamemode"
-		echo "We have finished installing everything we need to, and you are now ready to start gaming in Archlinux!"
-		echo "In order to get the gamemode package to work in lutris:"
-		echo "1. Open lutris"
-		echo "2. CLick on the lutris logo in the upper left hand corner and open preferences"
-		echo "3. Open the System Options tab"
-		echo "4. Add an environment variable with the following details:"
-		echo "Key: LD_PRELOAD"
-		echo "Value: "
+	# TODO add nvidia driver install for arch
+	# Removed Sudo in commands, as this script is meant to be run as root anyways.
+	echo "enabling multilib repository"
+	sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
+	echo "finished enabling multilib repository"
+	pacman -Sy wine
+	echo "finished installing Wine"
+	pacman -Sy lutris
+	echo "finished installing lutris"
+	echo "installing yay AUR helper"
+	mkdir ~/yay
+	git clone https://aur.archlinux.org/yay.git ~/yay
+	cd ~/yay
+	makepkg -si
+	echo "Finised installing yay"
+	echo "installing dxvk-bin"
+	yay -S dxvk-bin
+	echo "finished installing dxvk-bin"
+	echo "installing gamemode"
+	yay -S gamemode
+	echo "finished installing gamemode"
+	echo "We have finished installing everything we need to, and you are now ready to start gaming in Archlinux!"
+	echo "In order to get the gamemode package to work in lutris:"
+	echo "1. Open lutris"
+	echo "2. CLick on the lutris logo in the upper left hand corner and open preferences"
+	echo "3. Open the System Options tab"
+	echo "4. Add an environment variable with the following details:"
+	echo "Key: LD_PRELOAD"
+	echo "Value: "
 	find /usr -iname libgamemodeauto*
-fi
+   fi
 
 # EOF #
