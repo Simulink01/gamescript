@@ -3,7 +3,8 @@ A WIP Script to easily setup linux for gaming.
 The goal of this project is to allow new users from windows systems
 to not feel so overwhelmed and have an easy way to get gaming on linux
 We currently support Ubuntu based distros and Archlinux
-
+#Todo list
+we are currently working on a way to install NVIDIA drivers through the script
 # Installation-Ubuntu
 ###### Using git clone
 ```
@@ -19,6 +20,7 @@ git clone https://github.com/Simulink01/gamescript.git
 cd gamescript
 sudo bash gamescript.sh
 ```
+
 ###### Using yay/other AUR helper
 we are currently trying to get our package into the AUR
 
