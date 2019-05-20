@@ -5,7 +5,7 @@ to not feel so overwhelmed and have an easy way to get gaming on linux
 We currently support Ubuntu based distros and Archlinux
 
 # Todo list
-we are currently working on a way to install NVIDIA/AMD graphics drivers through the script depending on your system
+we are currently working on a way to install AMD graphics drivers through the script.
 
 # Installation-Ubuntu
 ###### Using git clone
