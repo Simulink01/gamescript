@@ -45,12 +45,12 @@ fi
 if [ $DISTRO == 'ubuntu' ]; then
 	if ! [ -x "$(command -v nvidia-smi)" ] && [ ./lspci | grep VGA | grep -q 'NVIDIA Corporation' ]
 	then
-   echo 'Your system reports that you do not have the propriety driver for your NVIDIA graphics card.'
+ 	 echo 'Your system reports that you do not have the propriety driver for your NVIDIA graphics card.'
 	 echo 'You need a propriety driver to game because it offers better performance than open-source drivers'
 	 echo 'would you like to continue with installation?'
 	 prompt_confirm "" || exit 0
 	 apt install nvidia-driver-390
-  fi
+	fi
 	wget -nc https://dl.winehq.org/wine-builds/winehq.key
 	apt-key add winehq.key
 	apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ disco main' -y
