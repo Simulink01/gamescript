@@ -5,7 +5,7 @@ to not feel so overwhelmed and have an easy way to get gaming on linux
 We currently support Ubuntu based distros and Archlinux
 
 # Todo list
-we are currently working on a way to install AMD graphics drivers through the script.
+we are currently working on a way to install NVIDIA graphics drivers through the script.
 
 # Installation-Ubuntu
 ###### Using git clone
@@ -15,8 +15,9 @@ cd gamescript
 sudo bash gamescript.sh
 ```
 # Installation-Arch
+Our Archlinux script is still in heavy testing, and may not work with your system. Make sure you perform a full system upgrade before running this script.
 ###### Using git clone
-make sure you have git installed by running ``sudo pacman -Syu git``
+make sure you have git installed by running ``sudo pacman -S git``
 ```
 git clone https://github.com/Simulink01/gamescript.git
 cd gamescript
